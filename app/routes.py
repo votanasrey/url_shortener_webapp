@@ -16,7 +16,7 @@ def validate_url(url):
 def index():
     return render_template("index.html")
 
-@bp.route("/<short_url>")
+@bp.route("/<short_url>", methods=["GET"])
 def redirect_to_url(short_url):
     original_url = url_shortener.expand(short_url)
     if original_url:
